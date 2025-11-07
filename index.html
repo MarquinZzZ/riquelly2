@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrar agora</title>
+  <style>
+    html,body{height:100%;margin:0}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background:#e0e0e0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .card{
+      text-align:center;
+      padding:48px 32px;
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      backdrop-filter: blur(6px);
+    }
+
+    h1{margin:0 0 18px;font-size:20px;color:#222}
+
+    .btn{
+      display:inline-block;
+      padding:16px 40px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      font-weight:700;
+      font-size:18px;
+      text-decoration:none;
+      box-shadow:0 8px 24px rgba(17,17,17,0.18);
+      transform:translateZ(0);
+      transition:transform .15s ease, box-shadow .15s ease;
+      position:relative;
+      overflow:visible;
+    }
+
+    .btn:active{transform:translateY(1px)}
+
+    .btn::after{
+      content:'';
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:100%;height:100%;border-radius:999px;
+      background:rgba(17,17,17,0.12);
+      z-index:-1;
+      animation:pulse 1.8s ease-out infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:translate(-50%,-50%) scale(1); opacity:1}
+      70%{transform:translate(-50%,-50%) scale(1.9); opacity:0}
+      100%{opacity:0}
+    }
+
+    @media (max-width:420px){
+      .card{padding:28px 18px}
+      .btn{padding:14px 26px;font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <a id="entrarBtn" class="btn" href="#">Entrar agora</a>
+  </div>
+
+  <!-- TikTok Pixel -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
+    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie"];
+    ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
+    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+    ttq.instance = function (t) { var e = ttq._i[t] || []; e.push = function () { Array.prototype.push.apply(this, arguments); ttq.push([t].concat(Array.prototype.slice.call(arguments, 0))); }; return e };
+    ttq.load = function (id) { var n = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[id] = []; ttq._i[id]._u = n; ttq._t = ttq._t || {}; ttq._o = ttq._o || {}; var e = document.createElement("script"); e.async = !0, e.src = n + "?sdkid=" + id + "&lib=" + t; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(e, a) };
+    ttq.load('D40C1PBC77UB2CR9LNA0');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+
+  <script>
+    // Flag para ativar ou desativar o redirect
+    const redirectAtivo = false; // altere para true quando quiser ativar o redirecionamento
+    const linkRedirect = 'https;//google.com'; // substitua pelo link final
+
+    const botao = document.getElementById('entrarBtn');
+    botao.addEventListener('click', function(e){
+      e.preventDefault();
+      if(redirectAtivo){
+        try{ if(window.ttq && typeof window.ttq.track === 'function'){
+          window.ttq.track('EntrarAgora');
+        }}catch(err){console.warn('ttq not ready yet', err)}
+
+        this.textContent = 'Redirecionando...';
+        setTimeout(()=>{
+          window.location.href = linkRedirect;
+        },250);
+      } else {
+        console.log('Redirect desativado. Nenhuma ação executada.');
+      }
+    });
+  </script>
+</body>
+</html>
