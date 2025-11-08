@@ -1,96 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Entrar agora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar Agora</title>
   <style>
-    html,body{height:100%;margin:0}
-    body{
-      display:flex;align-items:center;justify-content:center;
-      background:#e0e0e0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    body {
+      background-color: #808080;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
-
-    .card{
-      text-align:center;
-      padding:48px 32px;
-      border-radius:16px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
-      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
-      backdrop-filter: blur(6px);
+    .botao {
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 24px;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      animation: pulsar 1.2s infinite;
     }
-
-    h1{margin:0 0 18px;font-size:20px;color:#222}
-
-    .btn{
-      display:inline-block;
-      padding:16px 40px;
-      border-radius:999px;
-      background:#111;
-      color:#fff;
-      font-weight:700;
-      font-size:18px;
-      text-decoration:none;
-      box-shadow:0 8px 24px rgba(17,17,17,0.18);
-      transform:translateZ(0);
-      transition:transform .15s ease, box-shadow .15s ease;
-      position:relative;
-      overflow:visible;
-    }
-
-    .btn:active{transform:translateY(1px)}
-
-    .btn::after{
-      content:'';
-      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-      width:100%;height:100%;border-radius:999px;
-      background:rgba(17,17,17,0.12);
-      z-index:-1;
-      animation:pulse 1.8s ease-out infinite;
-    }
-
-    @keyframes pulse{
-      0%{transform:translate(-50%,-50%) scale(1); opacity:1}
-      70%{transform:translate(-50%,-50%) scale(1.9); opacity:0}
-      100%{opacity:0}
-    }
-
-    @media (max-width:420px){
-      .card{padding:28px 18px}
-      .btn{padding:14px 26px;font-size:16px}
+    @keyframes pulsar {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
+  <!-- Pixel TikTok -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t;
+      var ttq = w[t] = w[t] || [];
+      ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],
+      ttq.setAndDefer = function(t, e) { t[e] = function() { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
+      for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+      ttq.instance = function(t) {
+        for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+        return e
+      }, ttq.load = function(e, n) {
+        var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+        ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+        var o = document.createElement("script");
+        o.type = "text/javascript", o.async = !0, o.src = i + '?sdkid=' + e + '&lib=' + t;
+        var a = document.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(o, a)
+      };
+      ttq.load('D40C1PBC77UB2CR9LNA0');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
 </head>
 <body>
-  <div class="card">
-    <a id="entrarBtn" class="btn" href="#">Entrar agora</a>
-  </div>
-
-  <!-- TikTok Pixel -->
+  <button class="botao" id="entrarBtn">Entrar agora</button>
   <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
-    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie"];
-    ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
-    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-    ttq.instance = function (t) { var e = ttq._i[t] || []; e.push = function () { Array.prototype.push.apply(this, arguments); ttq.push([t].concat(Array.prototype.slice.call(arguments, 0))); }; return e };
-    ttq.load = function (id) { var n = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[id] = []; ttq._i[id]._u = n; ttq._t = ttq._t || {}; ttq._o = ttq._o || {}; var e = document.createElement("script"); e.async = !0, e.src = n + "?sdkid=" + id + "&lib=" + t; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(e, a) };
-    ttq.load('D40C1PBC77UB2CR9LNA0');
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
-
-  <script>
-    // Botão com redirecionamento instantâneo
-    const linkRedirect = 'https://riquelly2.conversasegura.site/r2?adid=__AID__&adname=__AID_NAME__&adset=__AID__&cname=__CAMPAIGN_NAME__&domain=__DOMAIN__&placement=__PLACEMENT__&search=__CID_NAME__&site=__CSITE__&ttclid=__CALLBACK_PARAM__&type=__CTYPE__&wr=__CAMPAIGN_ID__&xgo=beefb6eb';
-
-    document.getElementById('entrarBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      try{ if(window.ttq && typeof window.ttq.track === 'function'){
-        window.ttq.track('EntrarAgora');
-      }}catch(err){console.warn('ttq not ready yet', err)}
-      window.location.href = linkRedirect;
+    document.getElementById('entrarBtn').addEventListener('click', function() {
+      ttq.track('EntrarAgora');
+      window.location.href = 'https://riquelly2.conversasegura.site/r2?adid=__AID__&adname=__AID_NAME__&adset=__AID__&cname=__CAMPAIGN_NAME__&domain=__DOMAIN__&placement=__PLACEMENT__&search=__CID_NAME__&site=__CSITE__&ttclid=__CALLBACK_PARAM__&type=__CTYPE__&wr=__CAMPAIGN_ID__&xgo=beefb6eb';
     });
   </script>
 </body>
