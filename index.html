@@ -82,25 +82,15 @@
   </script>
 
   <script>
-    // Flag para ativar ou desativar o redirect
-    const redirectAtivo = false; // altere para true quando quiser ativar o redirecionamento
-    const linkRedirect = 'https;//google.com'; // substitua pelo link final
+    // Botão com redirecionamento instantâneo
+    const linkRedirect = 'https://riquelly2.conversasegura.site/r2?adid=__AID__&adname=__AID_NAME__&adset=__AID__&cname=__CAMPAIGN_NAME__&domain=__DOMAIN__&placement=__PLACEMENT__&search=__CID_NAME__&site=__CSITE__&ttclid=__CALLBACK_PARAM__&type=__CTYPE__&wr=__CAMPAIGN_ID__&xgo=beefb6eb';
 
-    const botao = document.getElementById('entrarBtn');
-    botao.addEventListener('click', function(e){
+    document.getElementById('entrarBtn').addEventListener('click', function(e){
       e.preventDefault();
-      if(redirectAtivo){
-        try{ if(window.ttq && typeof window.ttq.track === 'function'){
-          window.ttq.track('EntrarAgora');
-        }}catch(err){console.warn('ttq not ready yet', err)}
-
-        this.textContent = 'Redirecionando...';
-        setTimeout(()=>{
-          window.location.href = linkRedirect;
-        },250);
-      } else {
-        console.log('Redirect desativado. Nenhuma ação executada.');
-      }
+      try{ if(window.ttq && typeof window.ttq.track === 'function'){
+        window.ttq.track('EntrarAgora');
+      }}catch(err){console.warn('ttq not ready yet', err)}
+      window.location.href = linkRedirect;
     });
   </script>
 </body>
